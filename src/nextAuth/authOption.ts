@@ -4,6 +4,7 @@ import { email } from './../../node_modules/zod/v4/classic/schemas';
 import { jwtDecode } from "jwt-decode";
 
 export const authOptions:NextAuthOptions={
+    secret: process.env.NEXTAUTH_SECRET,
     providers:[
         Credentials({
           name:'my login' ,
