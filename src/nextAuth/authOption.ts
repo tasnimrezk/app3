@@ -28,9 +28,16 @@ export const authOptions:NextAuthOptions={
          
         } ); 
          
-         if(!response.ok){
-            throw new Error(response.statusText)
-          }
+        //  if(!response.ok){
+        //     throw new Error(response.statusText)
+        //   }
+
+        if (!response.ok) {
+  const errorData = await response.json()
+  console.log("LOGIN ERROR:", errorData)
+  throw new Error(errorData.message || "Login failed")
+}
+
 
         const payload = await response.json();
         const userData:{id:string} = jwtDecode(payload.token)
