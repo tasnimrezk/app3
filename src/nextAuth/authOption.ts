@@ -1,6 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { email } from './../../node_modules/zod/v4/classic/schemas';
+
 import { jwtDecode } from "jwt-decode";
 
 export const authOptions:NextAuthOptions={
@@ -67,7 +67,7 @@ export const authOptions:NextAuthOptions={
         },
 
         session({session,token}){
-          if(token){
+          if(token.id){
             session.user.id = token.id
                 
           }
