@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import getOrders from '@/api/actions/getOrders'
 
 export default async function OrdersPage() {
