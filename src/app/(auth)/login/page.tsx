@@ -32,52 +32,55 @@ export default function Login() {
  resolver:zodResolver(loginSchema)
   })
 
-//  async function submitForm(data:loginData){
-//  const isLogin = await signIn('credentials' , {...data , redirect:false} ) 
+ async function submitForm(data:loginData){
+ const isLogin = await signIn('credentials' , {...data , redirect:false} ) 
 
 
     
-//    if(isLogin?.ok){
-//       toast.add({
-//         type:"success",
-//         description:"Success Login"
-//       })
-//       router.push('/')
-//     }
-//     else{
-//       toast.add({
-//         type:"error",
-//         description:"Can't Login Now"
-//       })
-//     }
-//  }
+   if(isLogin?.ok){
+      toast.add({
+        type:"success",
+        description:"Success Login"
+      })
+      router.push('/')
+    }
+    else{
+      toast.add({
+        type:"error",
+        description:"Can't Login Now"
+      })
+    }
+ }
 
 
-async function submitForm(data: loginData) {
-  console.log("LOGIN DATA:", data)
+// async function submitForm(data: loginData) {
+//   console.log("LOGIN DATA:", data)
 
-  const isLogin = await signIn("credentials", {
-    email: data.email,
-    password: data.password,
-    redirect: false,
-  })
+//   const isLogin = await signIn("credentials", {
+//     email: data.email,
+//     password: data.password,
+//     redirect: false,
+//   })
 
-  console.log("LOGIN RESULT:", isLogin)
+//   console.log("LOGIN RESULT:", isLogin)
 
-  if (isLogin?.ok) {
-    toast.add({
-      type: "success",
-      description: "Success Login",
-    })
+// if (isLogin?.ok) {
+//   console.log("LOGIN SUCCESS")
 
-    router.push("/")
-  } else {
-    toast.add({
-      type: "error",
-      description: isLogin?.error || "Can't Login Now",
-    })
-  }
-}
+//   toast.add({
+//     type: "success",
+//     description: "Success Login"
+//   })
+
+//   router.push("/")
+// } else {
+//   console.log("LOGIN FAILED:", isLogin?.error)
+
+//   toast.add({
+//     type: "error",
+//     description: isLogin?.error || "Can't Login Now"
+//   })
+// }
 
   return (
   <>
